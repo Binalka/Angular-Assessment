@@ -1,0 +1,65 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "userfn": [
+    {
+      "title": "ms",
+      "name": "binalka",
+      "des": "kurunegala",
+      "date": "2023-04-24T18:30:00.000Z",
+      "gender": "female",
+      "service": "Pedicure",
+      "price": 2,
+      "number": "one",
+      "id": 1
+    },
+    {
+      "title": "mr",
+      "name": "Akein",
+      "des": "kandy",
+      "date": "2023-04-26T18:30:00.000Z",
+      "gender": "female",
+      "service": "Pedicure",
+      "price": 1,
+      "number": "one",
+      "id": 2
+    },
+    {
+      "title": "ms",
+      "name": "Niyumi",
+      "des": "galle",
+      "date": "2023-04-25T18:30:00.000Z",
+      "gender": "female",
+      "service": "Pedicure",
+      "price": 1,
+      "number": "one",
+      "id": 3
+    },
+    {
+      "title": "ms",
+      "name": "Susalini",
+      "des": "Mathara",
+      "date": "2023-04-16T18:30:00.000Z",
+      "gender": "female",
+      "service": "Hair Color",
+      "price": 1,
+      "number": "two",
+      "id": 4
+    }
+  ]
+}

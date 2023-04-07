@@ -1,0 +1,86 @@
+<div mat-dialog-title>
+    <h1>Customer Form</h1>
+</div>
+<form [formGroup]="empForm" (ngSubmit)="onFormSubmit()">
+    <div mat-dialog-content class="content">
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Title</mat-label>
+                <input matInput type="text" placeholder=" Mr/Mrs/Ms" formControlName="title">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Name</mat-label>
+                <input matInput type="text" placeholder=" Mr/Mrs/Ms" formControlName="name">
+            </mat-form-field>
+        </div>
+
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Address</mat-label>
+                <textarea matInput type="text" placeholder="Enter Address" formControlName="des"> </textarea>
+            </mat-form-field>
+           
+        </div>
+
+        <div class="row">
+            <mat-radio-group aria-label="Select an option" formControlName="gender">
+                <mat-label><b>Gender</b></mat-label>
+                <mat-radio-button value="male">Male</mat-radio-button>
+                <mat-radio-button value="female">Female</mat-radio-button>
+                <mat-radio-button value="others">Others</mat-radio-button>
+            </mat-radio-group>
+        </div>
+
+        <div class="row">
+            <!-- <mat-form-field appearance="outline">
+                <mat-label>Service</mat-label>
+                <mat-select formControlName="education">
+                    <mat-option *ngFor="let val of ser" [value]="val">{{val}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field> -->
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Service </mat-label>
+              <input type="text"
+                     placeholder="Pick one"
+                     matInput
+                     formControlName ="service"
+                     [matAutocomplete]="auto"
+                     >
+              <mat-autocomplete #auto="matAutocomplete">
+                <mat-option *ngFor="let ser of filteredOptions | async" [value]="ser">
+                  {{ser}}
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Appointment Date</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="date">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <div style="padding: 10px;" matPrefix>$&nbsp;</div>
+                <mat-label>Price Range</mat-label>
+                <input matInput placeholder="12" type="number" formControlName="price">
+                <mat-hint>Only In Dollars</mat-hint>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Number Of Persons</mat-label>
+              <mat-select formControlName="number" placeholder="1">
+                <mat-option *ngFor="let values of numbers" [value]="values">{{values}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+    <div mat-dialog-actions class="action">
+        <button mat-raised-button type="button" [mat-dialog-close]="false">Cancel</button>
+        <button mat-raised-button color="accent" type="submit">{{data ? 'Update': 'Save'}}</button>
+    </div>
+</form>
